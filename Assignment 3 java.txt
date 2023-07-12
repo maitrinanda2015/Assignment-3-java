@@ -1,0 +1,214 @@
+1.Write a simple Banking System program by using OOPs concept where you can get account Holder name balance etc?
+import java.util.Scanner;
+
+class BankAccount {
+    private String accountHolder;
+    private double balance;
+
+    public BankAccount(String accountHolder, double balance) {
+        this.accountHolder = accountHolder;
+        this.balance = balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposit of " + amount + " successful. New balance: " + balance);
+        } else {
+            System.out.println("Invalid amount. Deposit failed.");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawal of " + amount + " successful. New balance: " + balance);
+        } else {
+            System.out.println("Insufficient balance or invalid amount. Withdrawal failed.");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+
+public class BankingSystem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter account holder name: ");
+        String accountHolder = scanner.nextLine();
+
+        System.out.print("Enter initial balance: ");
+        double initialBalance = scanner.nextDouble();
+
+        BankAccount account = new BankAccount(accountHolder, initialBalance);
+
+        System.out.println("Account holder: " + account.getAccountHolder());
+        System.out.println("Current balance: " + account.getBalance());
+
+        System.out.print("Enter deposit amount: ");
+        double depositAmount = scanner.nextDouble();
+        account.deposit(depositAmount);
+
+        System.out.print("Enter withdrawal amount: ");
+        double withdrawalAmount = scanner.nextDouble();
+        account.withdraw(withdrawalAmount);
+
+        scanner.close();
+    }
+}
+2. Write a Program where you inherit method from parent class and show method Overridden Concept?
+class Animal {
+    public void makeSound() {
+        System.out.println("The animal makes a sound.");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("The cat says 'Meow!'");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("The dog says 'Woof!'");
+    }
+}
+
+public class AnimalSounds {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        animal.makeSound(); // Output: The animal makes a sound.
+
+        Cat cat = new Cat();
+        cat.makeSound(); // Output: The cat says 'Meow!'
+
+        Dog dog = new Dog();
+        dog.makeSound(); // Output: The dog says 'Woof!'
+    }
+}
+3.Write a program to show run time polymorphism in java?
+class Shape {
+    public void draw() {
+        System.out.println("Drawing a shape.");
+    }
+}
+
+class Circle extends Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle.");
+    }
+}
+
+class Rectangle extends Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle.");
+    }
+}
+
+public class PolymorphismExample {
+    public static void main(String[] args) {
+        Shape shape1 = new Circle();
+        Shape shape2 = new Rectangle();
+
+        shape1.draw(); // Output: Drawing a circle.
+        shape2.draw(); // Output: Drawing a rectangle.
+    }
+}
+4.Write a program to show Compile time polymorphism in java?
+public class MathOperations {
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static double add(double a, double b) {
+        return a + b;
+    }
+
+    public static int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public static void main(String[] args) {
+        int sum1 = add(5, 10);
+        double sum2 = add(2.5, 3.7);
+        int sum3 = add(2, 4, 6);
+
+        System.out.println("Sum 1: " + sum1); // Output: Sum 1: 15
+        System.out.println("Sum 2: " + sum2); // Output: Sum 2: 6.2
+        System.out.println("Sum 3: " + sum3); // Output: Sum 3: 12
+    }
+}
+5. Achieve loose coupling in java by using OOPs  concept?
+Abstraction: Using abstraction, you can define interfaces or abstract classes that specify a contract of behavior without exposing the implementation details. Components can interact with each other through these abstracted interfaces, promoting loose coupling by relying on the contracts rather than concrete implementations.
+
+
+6. What is the benefit of encapsulation in java?
+Encapsulation is a fundamental concept in Java that combines data and behavior within a class and controls access to the internal state of objects. It provides several benefits in terms of data hiding, code organization, and maintainability.
+
+7.Is java a t 100% Object oriented Programming language? If no why ?
+Primitive Data Types: Java includes primitive data types such as int, boolean, char, etc., which are not objects. These primitive types do not have associated methods or inherit from a class. However, Java provides wrapper classes (e.g., Integer, Boolean, Character) to treat these primitives as objects.
+
+Static Members: Java supports static members (variables and methods) that belong to a class rather than individual objects. Static members are associated with the class itself and can be accessed without creating an instance of the class. In contrast, in a pure OOP language, all behavior is defined within objects, and there are no concepts of static members or static methods.
+
+8.What are the advantages of abstraction in java?
+
+Abstraction is an important concept in Java that allows you to simplify complex systems by focusing on essential features while hiding unnecessary details. It provides several advantages in terms of code organization, modularity, and maintainability.
+
+9.What is an abstraction explained with an Example?
+abstract class Shape {
+    abstract void draw();
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle.");
+    }
+}
+
+class Rectangle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a rectangle.");
+    }
+}
+
+public class AbstractionExample {
+    public static void main(String[] args) {
+        Shape circle = new Circle();
+        Shape rectangle = new Rectangle();
+
+        circle.draw(); // Output: Drawing a circle.
+        rectangle.draw(); // Output: Drawing a rectangle.
+    }
+}
+10.What is the final class in Java?
+In Java, the final keyword is used to restrict the inheritance of a class or prevent the overriding of methods and variables. When applied to a class, the final keyword makes the class "final," which means it cannot be subclassed. A final class cannot have any subclasses.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
